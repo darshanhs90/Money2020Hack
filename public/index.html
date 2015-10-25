@@ -31,11 +31,13 @@
 						<div class="col-sm-1"></div>
 						<input type="phone" ng-model="phoneNumber" placeholder="Enter Phone Number" style="color:black;border-radius:15px;outline: 0;" class="col-sm-5 "/>
 						<button class="btn btn-info" ng-click="sendSms()" class="col-sm-5">Send Bill Details</button>
-						<div class="col-sm-1"></div>
+						<div class="col-sm-1"><span ng-show="!gifyhide" style="position:relative;left:200px;" ng-click="refreshFunction()" class="fa fa-refresh">Refresh</span></div>
 					</div>
 					<img  ng-show="gifyhide" src="http://i.imgur.com/sOX1GUR.gif"
 						alt="" style="height:100px;position:relative;left:150px;"/>
 					<span ng-show="gifyhide" style="position:relative;left:130px;">Processing Payment</span>
+
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

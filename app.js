@@ -9,6 +9,7 @@ var accountSid = 'AC07275e4294f1b0d42623c3ec9559911e';
 var authToken = "650d049a9bd99323fb899ce4b9e84fcc";
 var client = require('twilio')(accountSid, authToken);
 app.use(cors());
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 paypal.configure({
@@ -84,26 +85,61 @@ app.get('/checkPayment',function(req,res){
         if (error) {
             throw error;
         } else {
-            res.send(results);
-            res.end();
             if(flag){
                 flag=false;
-                res.end('1');
+                res.send({'a':'1'});
             }
             else
-                res.end('0');
+                res.send({'a':'0'});
+            res.end();
         }
     });
 });
 
+
+
+
 app.get("/sendSms", function(req, res) {
     console.log(req.query.number);
     client.messages.create({
-        body: "Your Bill is ",
+        body: "Sender:Walmart/Amount:110$",
         to: "+1"+req.query.number,
         from: "+14694164117"
     }, function(err, message) {
         console.log(message);
         res.end();
+    });
+});
+
+var listPayment = {
+    'count': '3',
+    'start_index': '1'
+};
+
+app.get('/getList',function(req,res){
+    paypal.payment.list(listPayment, function (error, payment) {
+        if (error) {
+            throw error;
+        } else {
+            console.log("List Payments Response");
+            console.log(payment);
+            res.send(payment);
+            res.end();
+        }
+    });
+});
+
+var creditCardId = "CARD-2MW305457R2279623KYWLDAI";
+
+app.get('/getCardInfo',function(req,res){
+    paypal.creditCard.get(creditCardId, function (error, credit_card) {
+        if (error) {
+            throw error;
+        } else {
+            console.log("Retrieve Credit Card Response");
+            console.log(JSON.stringify(credit_card));
+            res.send(credit_card);
+            res.end();
+        }
     });
 });

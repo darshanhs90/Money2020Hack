@@ -2,7 +2,15 @@ package com.example.eharihs.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
@@ -20,4 +28,6 @@ public class MainActivity extends Activity {
             startActivity(intent);
         }
     }
+
+
 }

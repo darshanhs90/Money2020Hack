@@ -38,7 +38,7 @@ public class VoiceReply extends Activity implements
         Log.d("asd",out);
 
 		if(out.contains("1") || out.contains("one")){
-            Intent serviceIntent = new Intent(this,MainActivity.class);
+            Intent serviceIntent = new Intent(this,MainActivityNew.class);
             //serviceIntent.setAction(".SmsReceiver");
             startService(serviceIntent);
             out = "Starting Transaction";
