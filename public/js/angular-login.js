@@ -10,7 +10,7 @@ app.controller('myCtrl',function($scope,$http) {
 		var phoneno = /^\d{10}$/;  
 		if($scope.phoneNumber.match(phoneno))  
 		{  
-			$http.get('http://localhost:1337/sendSms?number='+$scope.phoneNumber)
+			$http.get('http://localhost:1337/sendSms?number='+$scope.phoneNumber+"&amount="+$scope.billAmt)
 			.success(function(res){
 				alertify.success('SMS Sent Successfully');
 				sent=true;

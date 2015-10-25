@@ -101,8 +101,9 @@ app.get('/checkPayment',function(req,res){
 
 app.get("/sendSms", function(req, res) {
     console.log(req.query.number);
+    console.log(req.query.number);
     client.messages.create({
-        body: "Sender:Walmart/Amount:110$",
+        body: "Sender:Walmart/Amount:"+req.query.amount,
         to: "+1"+req.query.number,
         from: "+14694164117"
     }, function(err, message) {

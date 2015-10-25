@@ -4,6 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+<<<<<<< HEAD
+=======
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> origin/master
 public class MainActivity extends Activity {
 
     @Override
