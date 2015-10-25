@@ -1,3 +1,4 @@
+/*
 package com.example.eharihs.myapplication;
 import android.util.Log;
 
@@ -23,9 +24,11 @@ import static org.apache.http.params.HttpConnectionParams.setConnectionTimeout;
 import static org.apache.http.params.HttpConnectionParams.setSoTimeout;
 import static org.apache.http.params.HttpConnectionParams.setStaleCheckingEnabled;
 
+*/
 /**
  * Created by hasudhakar on 6/30/15.
- */
+ *//*
+
 public class JSONArrayParser {
 
     static InputStream is = null;
@@ -35,12 +38,14 @@ public class JSONArrayParser {
     public JSONArrayParser() {
     }
 
-    /**
+    */
+/**
      * This method is used to parse the Url by taking the url as parameter
      *
      * @param url
      * @return
-     */
+     *//*
+
     public Object getJsonObject(String url) throws IOException {
         try {
             DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -88,4 +93,4 @@ public class JSONArrayParser {
         }
         return null;
     }
-}
+}*/

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import org.apache.http.NameValuePair;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 

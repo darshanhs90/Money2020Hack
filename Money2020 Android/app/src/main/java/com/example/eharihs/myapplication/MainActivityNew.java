@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import org.apache.http.NameValuePair;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
@@ -17,10 +17,10 @@ public class MainActivityNew extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reply);
-    new GetList().execute();i
+    
     }
 
-    class GetList extends AsyncTask<String, String, String> {
+   /* class GetList extends AsyncTask<String, String, String> {
 
         boolean failure = false;
 
@@ -61,5 +61,5 @@ public class MainActivityNew extends Activity {
 
         }
 
-    }
+    }*/
 }
