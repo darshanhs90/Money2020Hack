@@ -17,7 +17,7 @@ public class MainActivityNew extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reply);
-    
+
     }
 
    /* class GetList extends AsyncTask<String, String, String> {

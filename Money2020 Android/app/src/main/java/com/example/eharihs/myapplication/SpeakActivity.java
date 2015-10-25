@@ -26,6 +26,8 @@ public class SpeakActivity extends Activity implements TextToSpeech.OnInitListen
 
         Intent i=getIntent();
         message=i.getType();
+        String arr[]=message.split("/");
+        message="Your Bill amount from Walmart is "+arr[1].toLowerCase().replace("amount:","");
         mTts = new TextToSpeech(this, this);
 
     }

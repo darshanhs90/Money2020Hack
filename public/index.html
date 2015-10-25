@@ -6,7 +6,7 @@
 -->
 <html ng-app="myApp">
 <head>
-	<title>Name of the app</title>
+	<title>Vieasy</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -24,14 +24,15 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					<h4 class="modal-title" id="myModalLabel">Payment Window</h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-sm-1"></div>
-						<input type="phone" ng-model="phoneNumber" placeholder="Enter Phone Number" style="color:black;border-radius:15px;outline: 0;" class="col-sm-5 "/>
-						<button class="btn btn-info" ng-click="sendSms()" class="col-sm-5">Send Bill Details</button>
-						<div class="col-sm-1"><span ng-show="!gifyhide" style="position:relative;left:200px;" ng-click="refreshFunction()" class="fa fa-refresh">Refresh</span></div>
+						<input type="phone" ng-model="phoneNumber" placeholder="Enter Ph Number" style="color:black;border-radius:15px;outline: 0;" class="col-sm-3 "/>
+						<input type="phone" ng-model="billAmt" placeholder="Enter Bill Amount" style="color:black;border-radius:15px;outline: 0;" class="col-sm-3 "/>
+						<button class="btn btn-sm btn-info" ng-click="sendSms()" class="col-sm-4" style="left:10px;">Send Bill Details</button>
+						<div class="col-sm-1"><span ng-show="!gifyhide" style="position:relative;left:170px" ng-click="refreshFunction()" class="fa fa-refresh">Refresh</span></div>
 					</div>
 					<img  ng-show="gifyhide" src="http://i.imgur.com/sOX1GUR.gif"
 						alt="" style="height:100px;position:relative;left:150px;"/>
@@ -52,8 +53,8 @@
 
 			<!-- Header -->
 			<header id="header">
-				<h1>Name of the Project</h1>
-				<p>Some shit regarding the project</p>
+				<h1>Vieasy</h1>
+				<p>Accessible mobile wallet to the visually challenged</p>
 				<nav>
 					<ul>
 						<li><a href="#" ng-click="openModal()" class="icon fa-paypal"><span class="label">PayPal</span></a></li>
