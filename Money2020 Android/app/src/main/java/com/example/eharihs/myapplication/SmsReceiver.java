@@ -1,13 +1,11 @@
 package com.example.eharihs.myapplication;
 
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.widget.Toast;
 
 public class SmsReceiver extends BroadcastReceiver {
 

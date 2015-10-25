@@ -1,6 +1,5 @@
 package com.example.eharihs.myapplication;
 
-import android.util.Log;
 import android.widget.TextView;
 
 public class MainView {

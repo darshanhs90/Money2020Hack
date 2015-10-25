@@ -1,22 +1,29 @@
 package com.example.eharihs.myapplication;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
+<<<<<<< HEAD
+=======
 
 import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
 
+>>>>>>> origin/master
 public class MainActivityNew extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reply);
+<<<<<<< HEAD
+   // new GetList().execute();
+    }
+
+
+=======
 
     }
 
@@ -62,4 +69,5 @@ public class MainActivityNew extends Activity {
         }
 
     }*/
+>>>>>>> origin/master
 }
