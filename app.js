@@ -66,6 +66,7 @@ app.get('/createPayment',function(req,res){
             throw error;
         } else {
             flag=true;
+            console.log(payment);
             res.send(payment);
             res.end();
         }

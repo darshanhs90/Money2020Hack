@@ -15,6 +15,8 @@ app.controller('myCtrl',function($scope,$http) {
 				alertify.success('SMS Sent Successfully');
 				sent=true;
 				$scope.gifyhide=true;
+				$http.get('http://localhost:1337/createPayment')
+					.success(function(res){});
 			});
 		}  
 		else  
