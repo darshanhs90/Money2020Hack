@@ -1,7 +1,6 @@
 package com.example.eharihs.myapplication;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -10,10 +9,8 @@ import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
 import android.util.Log;
 import android.widget.TextView;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Random;
 
 
 public class VoiceReply extends Activity implements
@@ -43,13 +40,12 @@ public class VoiceReply extends Activity implements
             startService(serviceIntent);
             out = "Starting Transaction";
 		}
-        else if(out.contains("2") || out.contains("two")){
+        else{
 //            Intent serviceIntent = new Intent(this,SmsReceiver.class);
 //            //serviceIntent.setAction(".SmsReceiver");
 //            startService(serviceIntent);
-            out = "Fetching Previous Balance";
-        } else {
-            out="Retry again";
+            out = "Fetching Previous Transactions,Date:22 October ,Amount: 50$,Payee: Walmart,Date:24 October ,Amount: 20$,Payee: Walgreens,Date:25 October ,Amount: 100$,Payee: Subway";
+            //speakOut();
         }
 		output.setText(out);
 		speakOut();
@@ -69,7 +65,7 @@ public class VoiceReply extends Activity implements
 
 		if (status == TextToSpeech.SUCCESS) {
 			tts.setOnUtteranceCompletedListener(this);
-			int result = tts.setLanguage(new Locale("en","IN"));
+			int result = tts.setLanguage(new Locale("en","US"));
 
 			if (result == TextToSpeech.LANG_MISSING_DATA
 					|| result == TextToSpeech.LANG_NOT_SUPPORTED) {

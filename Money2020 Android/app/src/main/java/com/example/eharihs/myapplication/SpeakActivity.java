@@ -3,10 +3,26 @@ package com.example.eharihs.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Locale;
-import android.os.Handler;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
 /**
  * Created by eharihs on 10/24/2015.
@@ -72,6 +88,30 @@ public class SpeakActivity extends Activity implements TextToSpeech.OnInitListen
                 if (resultCode == Activity.RESULT_OK) {
                     mView.updateView(MainView.STATUS_LOCK_PATTERN_VERFIED);
                     speak("Authenticated and Completed");
+                    HttpClient httpclient = new DefaultHttpClient();
+                    try{
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                                .detectAll()
+                                .penaltyLog()
+                                .build();
+                        StrictMode.setThreadPolicy(policy);
+                        HttpResponse response = httpclient.execute(new HttpGet("http://localhost:1337/createPayment"));
+                    } catch(IOException e){
+                        //
+                    }
+                    /*StatusLine statusLine = response.getStatusLine();
+                    if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+                        ByteArrayOutputStream out = new ByteArrayOutputStream();
+                        response.getEntity().writeTo(out);
+                        String responseString = out.toString();
+                        out.close();
+                        //..more logic
+                    } else{
+                        //Closes the connection.
+                        response.getEntity().getContent().close();
+                        throw new IOException(statusLine.getReasonPhrase());
+                    }*/
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
