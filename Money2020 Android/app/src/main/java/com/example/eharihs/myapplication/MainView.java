@@ -1,6 +1,7 @@
 package com.example.eharihs.myapplication;
 
-import android.widget.TextView; 
+import android.util.Log;
+import android.widget.TextView;
 
 public class MainView {
 	public static final int STATUS_LOCK_PATTERN_SAVED = 0;
@@ -15,9 +16,9 @@ public class MainView {
 	public MainView(SpeakActivity activity) {
 		mActivity = activity;
 		//
-		mActivity.setContentView(R.layout.activity_main);
+		mActivity.setContentView(R.layout.reply);
 		//
-		mTipTextView = (TextView) mActivity.findViewById(R.id.tip_textview);
+		mTipTextView = (TextView) mActivity.findViewById(R.id.output);
 	}
 
 	public void updateView(int status) {

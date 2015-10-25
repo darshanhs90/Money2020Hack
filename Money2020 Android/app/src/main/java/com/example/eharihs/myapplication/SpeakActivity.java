@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import java.util.Locale;
+import android.os.Handler;
 
 /**
  * Created by eharihs on 10/24/2015.
@@ -70,7 +71,15 @@ public class SpeakActivity extends Activity implements TextToSpeech.OnInitListen
             case REQUEST_CODE_VERIFY_LOCK_PATTERN:
                 if (resultCode == Activity.RESULT_OK) {
                     mView.updateView(MainView.STATUS_LOCK_PATTERN_VERFIED);
+                    speak("Authenticated and Completed");
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    }, 5000);
                 } else {
+                    speak("Failed");
                     mView.updateView(MainView.STATUS_LOCK_PATTERN_VERFIED_FAILED);
                 }
                 break;
