@@ -5,8 +5,8 @@ var cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
 var paypal = require('paypal-rest-sdk');
-var accountSid = 'AC07275e4294f1b0d42623c3ec9559911e';
-var authToken = "650d049a9bd99323fb899ce4b9e84fcc";
+var accountSid = 'id';
+var authToken = "token";
 var client = require('twilio')(accountSid, authToken);
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
-  'client_id': 'AeKFTEWOLJ3zEjq116kQAXhVy2-RINQNC7Er4aakfhFWkaOmDL4yZS3IkbG7RaZqPolH60G7e4wOIII5',
-  'client_secret': 'EJctgdv0F9vbM04pcf5TiUmwkI-XRZsumjhA-yBhjNHc_fIMEdr-nOXHhkZ_bHXavTQXAhSv074fsZv5'
+  'client_id': 'client_id',
+  'client_secret': 'client_secret'
 });
 app.listen(1337, '127.0.0.1', function() {
     console.log("server starting on " + 1337);
@@ -106,7 +106,7 @@ app.get("/sendSms", function(req, res) {
     client.messages.create({
         body: "Sender:Subway/Amount:"+req.query.amount,
         to: "+1"+req.query.number,
-        from: "+14694164117"
+        from: "+othnum"
     }, function(err, message) {
         console.log(message);
         res.end();
@@ -131,7 +131,7 @@ app.get('/getList',function(req,res){
     });
 });
 
-var creditCardId = "CARD-2MW305457R2279623KYWLDAI";
+var creditCardId = "CARD-id";
 
 app.get('/getCardInfo',function(req,res){
     paypal.creditCard.get(creditCardId, function (error, credit_card) {
